@@ -1,0 +1,212 @@
+# Mod = windows key
+set $mod Mod4
+
+font pango:DejaVu Sans Mono 8
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit i3?' \
+  -b 'Exit' 'i3-msg exit'"
+
+#------------------------------- Application Controls --------------------------------
+
+# Launch termite (a terminal)
+bindsym $mod+Return 	exec --no-startup-id urxvt
+bindsym $mod+t 		exec --no-startup-id thunar
+
+#Multimedia audio keys (requires pulseaudio) can also be managed with pavucontrol
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+
+#Multimedia brightness keys(requires xorg-xbacklight)
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Screenshot desktop (requires scrot)
+bindsym $mod+F4  exec --no-startup-id scrot -e 'feh $f -x' -d 2
+# Screenshot focused window
+bindsym $mod+Shift+F4 exec --no-startup-id scrot -u -e 'feh $f -x'   
+
+# Lock
+bindsym $mod+shift+x exec i3lock --color "#000000"
+
+#--------------------------- Container manipulation --------------------------
+# Controls to manipulate layout, location, and appearance for window containers
+
+# Split focused container horizontally or vertically
+bindsym $mod+b split h
+bindsym $mod+v split v 
+
+# Toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Focus the parent container which allows manipulating an entire container
+# and all the children at once
+bindsym $mod+a focus parent
+# Return focus to the child container
+bindsym $mod+z focus child
+
+# Toggle tiling/floating for a container
+bindsym $mod+Shift+space floating toggle
+# Change focus between tiling/floating containers
+bindsym $mod+space focus mode_toggle
+# Hold the mod key to drag and resize floating container
+floating_modifier $mod
+
+# Move the currently focused container to the scratchpad which contains
+# floating containers available on all workspaces
+bindsym $mod+shift+minus move scratchpad
+# Show/hide the scratchpad
+bindsym $mod+minus scratchpad show
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Special mode to resize window (mouse drag also works)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Grow/shrink the window size using typical vim navigation or arrows
+        bindsym h     resize shrink width  10 px or 10 ppt
+        bindsym j     resize grow   height 10 px or 10 ppt
+        bindsym k     resize shrink height 10 px or 10 ppt
+        bindsym l     resize grow   width  10 px or 10 ppt
+
+        # Return to normal mode
+	bindsym $mod+r mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#=============================== Workspace settings ================================
+
+#define monitors
+#detect with xrandr --verbose (xorg-xrandr)
+set $monitor1 HDMI-1
+set $monitor2 HDMI-2
+
+#define names for the workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#define which workspace is on which monitor
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor1
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor1
+workspace $ws5 output $monitor1
+workspace $ws6 output $monitor1
+workspace $ws7 output $monitor1
+workspace $ws8 output $monitor1
+workspace $ws9 output $monitor1
+workspace $ws10 output $monitor2
+
+#switch to a workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6 bindsym $mod+7 workspace $ws7 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Controls to navigate inside a workspace
+# Change focus; both Vim style h,j,k,l and arrow keys work
+bindsym $mod+h      focus left
+bindsym $mod+j      focus down
+bindsym $mod+k      focus up
+bindsym $mod+l      focus right
+
+# Move focused container; both Vim style h,j,k,l and arrow keys work
+bindsym $mod+Shift+h      move left
+bindsym $mod+Shift+j      move down
+bindsym $mod+Shift+k      move up
+bindsym $mod+Shift+l      move right
+
+
+#==================== Window settings ======================
+
+
+# Floating mode for dialog windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [class="feh"] floating enable
+
+#assign programs to workspaces
+#assign [class="firefoxdeveloperedition"] $ws2
+for_window [class=".*"] border pixel 3
+# workspace $ws6 gaps horizontal 500
+
+
+#========================== Colors ================================
+
+set $bg-color 	         	#5a5047
+set $inactive-bg-color      #131313
+set $text-color          	#FFFFFF
+set $inactive-text-color 	#FFFFFF
+set $urgent-bg-color   		#E53935
+set $indicator			    #5b5148
+
+# window colors
+#                       border              background         text	                    indicator
+client.focused          $bg-color	        $bg-color  		    $text-color          	$indicator
+client.unfocused        $inactive-bg-color  $inactive-bg-color 	$inactive-text-color 	$indicator
+client.focused_inactive $inactive-bg-color  $inactive-bg-color 	$inactive-text-color 	$indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		        $indicator
+
+#========================== i3Status ================================
+bar {
+	status_command i3status
+	font pango:DejaVu 8
+	colors {
+		background $inactive-bg-color
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+
+#-------------------------------- Dmenu Controls ----------------------------------------
+
+bindsym $mod+d exec dmenu_run -b -nb '$inactive-bg-color' -nf '$inactive-text-color' -sf '$text-color' -sb '$bg-color'
+
+#========================== Auto start ================================
+exec picom -b						# Start picom
+exec feh --bg-scale /home/job/.config/i3/background.png      # Set background
