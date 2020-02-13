@@ -91,21 +91,21 @@ bindsym $mod+r mode "resize"
 #=============================== Workspace settings ================================
 
 #define monitors
-#detect with xrandr --verbose (xorg-xrandr)
+#detect with xrandr -q (xorg-xrandr)
 set $monitor1 HDMI-1
 set $monitor2 HDMI-3
 
 #define names for the workspaces
-set $ws1 "<span color='#5a5047'><b>[</b></span>1<span color='#5a5047'><b>]</b></span>"
-set $ws2 "<span color='#5a5047'><b>[</b></span>2<span color='#5a5047'><b>]</b></span>"
-set $ws3 "<span color='#5a5047'><b>[</b></span>3<span color='#5a5047'><b>]</b></span>"
-set $ws4 "<span color='#5a5047'><b>[</b></span>4<span color='#5a5047'><b>]</b></span>"
-set $ws5 "<span color='#5a5047'><b>[</b></span>5<span color='#5a5047'><b>]</b></span>"
-set $ws6 "<span color='#5a5047'><b>[</b></span>6<span color='#5a5047'><b>]</b></span>"
-set $ws7 "<span color='#5a5047'><b>[</b></span>7<span color='#5a5047'><b>]</b></span>"
-set $ws8 "<span color='#5a5047'><b>[</b></span>8<span color='#5a5047'><b>]</b></span>"
-set $ws9 "<span color='#5a5047'><b>[</b></span>9<span color='#5a5047'><b>]</b></span>"
-set $ws10 "<span color='#5a5047'><b>[</b></span>0<span color='#5a5047'><b>]</b></span>"
+set $ws1 "1:<span color='#5a5047'><b>[</b></span>1<span color='#5a5047'><b>]</b></span>"
+set $ws2 "2:<span color='#5a5047'><b>[</b></span>2<span color='#5a5047'><b>]</b></span>"
+set $ws3 "3:<span color='#5a5047'><b>[</b></span>3<span color='#5a5047'><b>]</b></span>"
+set $ws4 "4:<span color='#5a5047'><b>[</b></span>4<span color='#5a5047'><b>]</b></span>"
+set $ws5 "5:<span color='#5a5047'><b>[</b></span>5<span color='#5a5047'><b>]</b></span>"
+set $ws6 "6:<span color='#5a5047'><b>[</b></span>6<span color='#5a5047'><b>]</b></span>"
+set $ws7 "7:<span color='#5a5047'><b>[</b></span>7<span color='#5a5047'><b>]</b></span>"
+set $ws8 "8:<span color='#5a5047'><b>[</b></span>8<span color='#5a5047'><b>]</b></span>"
+set $ws9 "9:<span color='#5a5047'><b>[</b></span>9<span color='#5a5047'><b>]</b></span>"
+set $ws10 "10:<span color='#5a5047'><b>[</b></span>0<span color='#5a5047'><b>]</b></span>"
 
 #define which workspace is on which monitor
 #define which workspace is on which monitor
@@ -195,6 +195,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		   
 #========================== i3Status colors ================================
 bar {
 	status_command i3status
+    strip_workspace_numbers yes
 	colors {
 		background $inactive-bg-color
 		#                  border             background         text
