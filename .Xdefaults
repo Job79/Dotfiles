@@ -4,7 +4,6 @@
 
 Xft.dpi:                    96
 Xft.antialias:              true
-#Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
@@ -17,12 +16,12 @@ Xft.hintstyle:              hintslight
 
 #URxvt.depth:                32
 URxvt.geometry:             90x30
-URxvt.transparent:          true
-URxvt.shading:              8
+#URxvt.transparent:          true
+#URxvt.shading:              8
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
-URxvt.saveLines:            1200
+URxvt.saveLines:            12000
 URxvt.lineSpace:            0
 
 ! Fonts
@@ -47,12 +46,12 @@ URxvt.urlLauncher:          firefox-developer-edition
 *cursorUnderline:      false
 
 ! Pointer
-URxvt.pointerBlank:         true
+URxvt.pointerBlank:    true
 
 ! special
 *.foreground:   #d4caa1
-*.background:   #16130f
-*.cursorColor:  #c5c8c6
+*.background:   #15110c
+*.cursorColor:  #5b5148
 
 ! black
 *.color0:       #16130f

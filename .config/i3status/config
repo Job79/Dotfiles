@@ -1,4 +1,4 @@
-# i3status configuration file.
+# Rstatus configuration file.
 # see "man i3status" for documentation.
 
 # It is important that this file is edited as UTF-8.
@@ -8,22 +8,22 @@
 
 general {
         markup="pango"
-        interval = 5
+        interval = 30
         separator=""
 }
 
 order += "memory"
-#order += "battery 0"
+order += "battery 0"
 order += "tztime local"
 
 tztime local{
-	format = "  <span color='#5a5047'><b>[</b></span>%time<span color='#5a5047'><b>]</b></span>  "
+	format = "  <span color='#5b5148'><b>[</b></span>%time<span color='#5b5148'><b>]</b></span>  "
 	format_time = "%H:%M"
 }
 battery 0{
-    format = "  <span color='#5a5047'><b>[</b></span>%percentage<span color='#5a5047'><b>]</b></span>"
+    format = "  <span color='#5b5148'><b>[</b></span>%percentage<span color='#5b5148'><b>]</b></span>"
     last_full_capacity = true
 }
 memory {
-        format = "<span color='#5a5047'><b>[</b></span>%used<span color='#5a5047'><b>]</b></span>"
+        format = "<span color='#5b5148'><b>[</b></span>%used<span color='#5b5148'><b>]</b></span>"
 }

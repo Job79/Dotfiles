@@ -19,10 +19,9 @@ bindsym $mod+t 		exec --no-startup-id thunar
 bindsym $mod+m      exec --no-startup-id firefox-developer-edition
 
 #Multimedia audio keys (requires pulseaudio) can also be managed with pavucontrol
-#List ouputs with 'pactl list short sinks'
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +5% 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 1 -5%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 
 #Multimedia brightness keys(requires xorg-xbacklight)
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -91,9 +90,9 @@ bindsym $mod+r mode "resize"
 #=============================== Workspace settings ================================
 
 #define monitors
-#detect with xrandr -q (xorg-xrandr)
+#detect with xrandr --verbose (xorg-xrandr)
 set $monitor1 HDMI-1
-set $monitor2 HDMI-3
+set $monitor2 HDMI-2
 
 #define names for the workspaces
 set $ws1 "1:<span color='#5a5047'><b>[</b></span>1<span color='#5a5047'><b>]</b></span>"
@@ -178,8 +177,8 @@ for_window [class=".*"] border pixel 1
 
 #========================== Colors ================================
 
-set $bg-color 	         	#5a5047
-set $inactive-bg-color      #131313
+set $bg-color 	         	#382c20
+set $inactive-bg-color      #15110c
 set $text-color          	#FFFFFF
 set $inactive-text-color 	#BBBBBB
 set $urgent-bg-color   		#E53935
@@ -194,9 +193,14 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		   
 
 #========================== i3Status colors ================================
 bar {
+    mode hide
+    hidden_state hide
+    modifier Mod1
+
 	status_command i3status
     strip_workspace_numbers yes
 	colors {
+	#	strip_workspace_numbers yes
 		background $inactive-bg-color
 		#                  border             background         text
 		focused_workspace  $inactive-bg-color $inactive-bg-color $text-color
