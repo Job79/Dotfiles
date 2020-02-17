@@ -90,9 +90,9 @@ bindsym $mod+r mode "resize"
 #=============================== Workspace settings ================================
 
 #define monitors
-#detect with xrandr --verbose (xorg-xrandr)
+#detect with 'xrandr' (xorg-xrandr)
 set $monitor1 HDMI-1
-set $monitor2 HDMI-2
+set $monitor2 HDMI-3
 
 #define names for the workspaces
 set $ws1 "1:<span color='#5a5047'><b>[</b></span>1<span color='#5a5047'><b>]</b></span>"
