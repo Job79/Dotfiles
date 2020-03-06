@@ -49,39 +49,39 @@ URxvt.urlLauncher:          firefox-developer-edition
 URxvt.pointerBlank:    true
 
 ! special
-*.foreground:   #d4caa1
-*.background:   #15110c
-*.cursorColor:  #5b5148
+*.foreground:   #a6a28c
+*.background:   #181818
+*.cursorColor:  #a6a28c
 
 ! black
-*.color0:       #16130f
-*.color8:       #5a5047
+*.color0:       #20201d
+*.color8:       #7d7a68
 
 ! red
-*.color1:       #826d57
-*.color9:       #826d57
+*.color1:       #045a09
+*.color9:       #0a6118
 
 ! green
-*.color2:       #57826d
-*.color10:      #57826d
+*.color2:       #60ac39
+*.color10:      #60ac39
 
 ! yellow
-*.color3:       #6d8257
-*.color11:      #6d8257
+*.color3:       #cfb017
+*.color11:      #cfb017
 
 ! blue
-*.color4:       #6d5782
-*.color12:      #6d5782
+*.color4:       #187a2a
+*.color12:      #04670f
 
 ! magenta
-*.color5:       #82576d
-*.color13:      #82576d
+*.color5:       #b854d4
+*.color13:      #b854d4
 
 ! cyan
-*.color6:       #576d82
-*.color14:      #576d82
+*.color6:       #1fad83
+*.color14:      #1fad83
 
 ! white
-*.color7:       #a39a90
-*.color15:      #dbd6d1
+*.color7:       #a6a28c
+*.color15:      #fefbec
 

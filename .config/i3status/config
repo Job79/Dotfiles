@@ -13,17 +13,17 @@ general {
 }
 
 order += "memory"
-order += "battery 0"
+#order += "battery 0"
 order += "tztime local"
 
 tztime local{
-	format = "  <span color='#5b5148'><b>[</b></span>%time<span color='#5b5148'><b>]</b></span>  "
+	format = "  <span color='#187a2a'><b>[</b></span>%time<span color='#187a2a'><b>]</b></span>  "
 	format_time = "%H:%M"
 }
 battery 0{
-    format = "  <span color='#5b5148'><b>[</b></span>%percentage<span color='#5b5148'><b>]</b></span>"
+    format = "  <span color='#187a2a'><b>[</b></span>%percentage<span color='#187a2a'><b>]</b></span>"
     last_full_capacity = true
 }
 memory {
-        format = "<span color='#5b5148'><b>[</b></span>%used<span color='#5b5148'><b>]</b></span>"
+        format = "<span color='#187a2a'><b>[</b></span>%used<span color='#187a2a'><b>]</b></span>"
 }
