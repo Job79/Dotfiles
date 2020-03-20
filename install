@@ -1,0 +1,73 @@
+# Basic tools
+nvim 			# Editor
+nnn 			# File manager
+feh				# Image viewer/background
+neofetch		# System info
+rxvt-unicode	# Terminal
+git				# Git
+
+# Install WM : i3
+xorg-server xorg-xinit i3-wm i3status i3lock dmenu	# i3
+ttf-hack # Font
+
+##! Create file "/etc/X11/xinit/xinitrc"
+## with content: "exec i3"
+## Install compisotor (picom)
+
+##! Append to ~/.bash_profile to autostart i3
+##  if [[ "$(tty)" == '/dev/tty1' ]]; then
+##         exec startx
+##fi
+# gtk Themes
+adapta-gtk-theme arc-icon-theme lxappearance
+
+# Tools
+firefox-developer-edition	# Browser
+##! about:config -> ui.key.menuAccessKeyFocuses = false # Disable alt key
+
+# Optional
+## Audio
+pulseaudio
+pavucontrol 	# Gui for pulseaudio
+
+## Multiple screens
+xorg-xrandr
+arandr			# Gui for xorg-xrandr
+
+## Android phone
+mtpfs	# Mounting android phones
+gmtp	# GUI for mtpfs
+
+## Install yay
+fakeroot binutils make gcc	# Used for building packages
+#-> git clone https://aur.archlinux.org/yay.git
+#-> cd yay
+#-> makepkg -si
+
+# Powertop (Laptop only)
+# Create file /etc/systemd/system/powertop.service
+# with content: "
+[Unit]
+Description=Powertop tunings
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/powertop --auto-tune
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+"
+
+## Touchpad click on tap
+# Create file /etc/X11/xorg.conf.d/90-touchpad.conf
+# with content: "
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "TappingButtonMap" "lrm"
+        Option "ScrollMethod" "twofinger"
+EndSection
+"
