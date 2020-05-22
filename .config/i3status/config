@@ -13,7 +13,7 @@ general {
 }
 
 order += "memory"
-#order += "battery 0"
+order += "battery 0"
 order += "tztime local"
 
 tztime local{
