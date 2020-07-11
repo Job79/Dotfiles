@@ -1,6 +1,6 @@
 ! Xft
-Xft.dpi:                    96
-Xft.antialias:              true
+Xft.dpi:               	96
+Xft.antialias:         	true
 
 !Fonts
 URxvt.geometry:         90x30
@@ -8,9 +8,11 @@ URxvt*font:             xft:Hack:pixelsize=16:antialias=true:hinting=true
 URxvt.saveLines:        12000
 URxvt*letterSpace: -1
 
+! Other
 URxvt.scrollBar:        false
 *cursorBlink:           false
 
+! ========== Colors ============
 ! special
 *.foreground:   #a6a28c
 *.background:   #181818

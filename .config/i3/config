@@ -14,7 +14,7 @@ bindsym $mod+Shift+e exec --no-startup-id i3-msg exit
 #========================== Colors ================================
 
 set $bg-color 	         	#181818
-set $inactive-bg-color      	#181818
+set $inactive-bg-color     	#181818
 set $text-color          	#FFFFFF
 set $inactive-text-color 	#BBBBBB
 set $urgent-bg-color   		#60ac39
@@ -111,18 +111,6 @@ bindsym $mod+r mode "resize"
 #detect with 'xrandr' (xorg-xrandr)
 set $monitor1 HDMI-1
 set $monitor2 HDMI-3
-
-#define names for the workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "0"
 
 #define which workspace is on which monitor
 workspace $ws1 output $monitor1
