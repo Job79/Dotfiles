@@ -1,17 +1,33 @@
 # Mod = windows key
 set $mod Mod4
 
+# Font
 font pango:Hack 7
 
 # Reload the configuration file bindsym $mod+Shift+c reload
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id i3-msg exit
 
-#------------------------------- Application Controls --------------------------------
+#========================== Colors ================================
+
+set $bg-color 	         	#181818
+set $inactive-bg-color      	#181818
+set $text-color          	#FFFFFF
+set $inactive-text-color 	#BBBBBB
+set $urgent-bg-color   		#60ac39
+set $indicator		    	#04670f
+
+# window colors
+#                       border              background         text	                    indicator
+client.focused          $bg-color	        $indicator  		    $text-color          	$indicator
+client.unfocused        $inactive-bg-color  $inactive-bg-color 	$inactive-text-color 	$indicator
+client.focused_inactive $inactive-bg-color  $inactive-bg-color 	$inactive-text-color 	$indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		$indicator
+
+#===================== Application Controls =========================
 
 # Launch shortcuts 
 bindsym $mod+Return	exec --no-startup-id urxvt
@@ -35,7 +51,9 @@ bindsym $mod+Shift+F4 exec --no-startup-id scrot -u -e 'feh $f -x'
 # Lock
 bindsym $mod+shift+x exec i3lock --color "#000000"
 
-#--------------------------- Container manipulation -------------------------- Controls to manipulate layout, location, and appearance for window containers
+# DMenu
+bindsym $mod+d exec dmenu_run -nb '$inactive-bg-color' -nf '$inactive-text-color' -sf '$text-color' -sb '$indicator'
+#================== Container manipulation ================================== 
 
 # Split focused container horizontally or vertically
 bindsym $mod+b split h
@@ -95,18 +113,17 @@ set $monitor1 HDMI-1
 set $monitor2 HDMI-3
 
 #define names for the workspaces
-set $ws1 "1:<span color='#187a2a'><b>[</b></span>1<span color='#187a2a'><b>]</b></span>"
-set $ws2 "2:<span color='#187a2a'><b>[</b></span>2<span color='#187a2a'><b>]</b></span>"
-set $ws3 "3:<span color='#187a2a'><b>[</b></span>3<span color='#187a2a'><b>]</b></span>"
-set $ws4 "4:<span color='#187a2a'><b>[</b></span>4<span color='#187a2a'><b>]</b></span>"
-set $ws5 "5:<span color='#187a2a'><b>[</b></span>5<span color='#187a2a'><b>]</b></span>"
-set $ws6 "6:<span color='#187a2a'><b>[</b></span>6<span color='#187a2a'><b>]</b></span>"
-set $ws7 "7:<span color='#187a2a'><b>[</b></span>7<span color='#187a2a'><b>]</b></span>"
-set $ws8 "8:<span color='#187a2a'><b>[</b></span>8<span color='#187a2a'><b>]</b></span>"
-set $ws9 "9:<span color='#187a2a'><b>[</b></span>9<span color='#187a2a'><b>]</b></span>"
-set $ws10 "10:<span color='#187a2a'><b>[</b></span>0<span color='#187a2a'><b>]</b></span>"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "0"
 
-#define which workspace is on which monitor
 #define which workspace is on which monitor
 workspace $ws1 output $monitor1
 workspace $ws2 output $monitor1
@@ -174,44 +191,8 @@ for_window [class="jetbrains-.*" title="win0"] floating enable border none
 assign [class="firefoxdeveloperedition"] $ws1
 
 # Borders
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 4 
 hide_edge_borders smart
-# workspace $ws6 gaps horizontal 500
-
-#========================== Colors ================================
-
-set $bg-color 	         	#181818
-set $inactive-bg-color      #181818
-set $text-color          	#FFFFFF
-set $inactive-text-color 	#BBBBBB
-set $urgent-bg-color   		#60ac39
-set $indicator			    #04670f
-
-# window colors
-#                       border              background         text	                    indicator
-client.focused          $bg-color	        $indicator  		    $text-color          	$indicator
-client.unfocused        $inactive-bg-color  $inactive-bg-color 	$inactive-text-color 	$indicator
-client.focused_inactive $inactive-bg-color  $inactive-bg-color 	$inactive-text-color 	$indicator
-client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		        $indicator
-
-#========================== i3Status colors ================================
-bar {
-    mode hide
-    hidden_state hide
-    modifier Mod1
-
-	status_command i3status
-    strip_workspace_numbers yes
-	colors {
-	#	strip_workspace_numbers yes
-		background $inactive-bg-color
-		#                  border             background         text
-		focused_workspace  $inactive-bg-color $inactive-bg-color $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $inactive-bg-color $inactive-bg-color $urgent
-	}
-}
-bindsym $mod+d exec dmenu_run -b -nb '$inactive-bg-color' -nf '$inactive-text-color' -sf '$text-color' -sb '$bg-color'
 
 #========================== Auto start ================================
 exec picom -b						# Start picom
