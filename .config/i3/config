@@ -31,8 +31,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		$in
 
 # Launch shortcuts 
 bindsym $mod+Return	exec --no-startup-id urxvt
-bindsym $mod+n 		exec --no-startup-id urxvt -e nnn
-bindsym $mod+i 		exec --no-startup-id urxvt -e htop 
+bindsym $mod+n 		exec --no-startup-id urxvt -e bash -i -c nnn
+bindsym $mod+i 		exec --no-startup-id urxvt -e htop
 bindsym $mod+m      exec --no-startup-id firefox-developer-edition
 
 #Multimedia audio keys (requires pulseaudio) can also be managed with pavucontrol
