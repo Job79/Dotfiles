@@ -31,17 +31,14 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   	$text-color		$in
 
 # Launch shortcuts 
 bindsym $mod+Return	exec --no-startup-id urxvt
-bindsym $mod+t 		exec --no-startup-id thunar
+bindsym $mod+n 		exec --no-startup-id urxvt -e nnn
+bindsym $mod+i 		exec --no-startup-id urxvt -e htop 
 bindsym $mod+m      exec --no-startup-id firefox-developer-edition
 
 #Multimedia audio keys (requires pulseaudio) can also be managed with pavucontrol
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
-
-#Multimedia brightness keys(requires xorg-xbacklight)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Screenshot desktop (requires scrot)
 bindsym $mod+F4  exec --no-startup-id scrot -e 'feh $f -x' -d 2
