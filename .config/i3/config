@@ -48,6 +48,9 @@ bindsym $mod+Shift+F4 exec --no-startup-id scrot -u -e 'feh $f -x'
 # Lock
 bindsym $mod+shift+x exec i3lock --color "#000000"
 
+# poweroff
+bindsym $mod+shift+p exec poweroff
+
 # DMenu
 bindsym $mod+d exec dmenu_run -nb '$inactive-bg-color' -nf '$inactive-text-color' -sf '$text-color' -sb '$indicator'
 #================== Container manipulation ================================== 
