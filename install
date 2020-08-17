@@ -39,8 +39,7 @@ xorg-xrandr
 arandr			# Gui for xorg-xrandr
 
 ## Android phone
-mtpfs	# Mounting android phones
-gmtp	# GUI for mtpfs
+jmtpfs
 
 ## Install yay
 fakeroot binutils make gcc	# Used for building packages
