@@ -1,9 +1,6 @@
 # Mod = windows key
 set $mod Mod4
 
-# Font
-font pango:Hack 7
-
 # Reload the configuration file bindsym $mod+Shift+c reload
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -14,7 +11,7 @@ bindsym $mod+Shift+e exec --no-startup-id i3-msg exit
 #========================== Colors ================================
 
 set $bg-color 	         	#181818
-set $inactive-bg-color     	#181818
+set $inactive-bg-color     	#212121
 set $text-color          	#FFFFFF
 set $inactive-text-color 	#BBBBBB
 set $urgent-bg-color   		#60ac39
@@ -164,22 +161,14 @@ bindsym $mod+Shift+l      move right
 
 #==================== Window settings ======================
 
-
 # Floating mode for dialog windows
 for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [class="feh"] floating enable
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
 
-#assign programs to workspaces
-assign [class="firefoxdeveloperedition"] $ws1
-
 # Borders
-for_window [class=".*"] border pixel 4 
+for_window [class=".*"] border pixel 3 
 hide_edge_borders smart
 
 #========================== Auto start ================================
