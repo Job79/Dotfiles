@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/etc/fonts/conf.d'
-let g:netrw_dirhist_6='/home/job/.config/i3status'
-let g:netrw_dirhist_5='/home/job/Documents/Projecten/BlockChain/BlockChain/Core'
-let g:netrw_dirhist_4='/home/job/Documents/Projecten/BlockChain/BlockChain'
-let g:netrw_dirhist_3='/home/job/Documents/Projecten/BlockChain'
-let g:netrw_dirhist_2='/home/job/.config/i3status'
-let g:netrw_dirhist_1='/home/job/Documents/hz'
