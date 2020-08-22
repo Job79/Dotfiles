@@ -62,6 +62,7 @@ static const char *nnncmd[]  = { "st", "-e", "nnn" };
 static const char *htopcmd[]  = { "st", "-e", "htop" };
 static const char *picomcmd[]  = { "bash", "-c", "picom", "-b" };
 static const char *scrotcmd[] = { "scrot", NULL };
+static const char *slockcmd[] = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -72,6 +73,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b, 	   spawn,          {.v = htopcmd } },
 	{ MODKEY,                       XK_p, 	   spawn,          {.v = picomcmd } },
 	{ 0,                            XK_Print,  spawn,          {.v = scrotcmd } },
+	{ MODKEY,                       XK_x, 	   spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
