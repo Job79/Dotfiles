@@ -49,6 +49,6 @@ alias myip='curl ipv4.icanhazip.com'
 PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 # Set prompt
-PS1="${Green}\w${NC} ➤ "
+PS1="${Blue}\w${NC} ➤ "
 
 export EDITOR=nvim
