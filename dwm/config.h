@@ -60,7 +60,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[]  = { "firefox-developer-edition", NULL };
 static const char *nnncmd[]  = { "st", "-e", "bash", "-c", "nnn -C" };
 static const char *htopcmd[]  = { "st", "-e", "htop" };
-static const char *picomcmd[]  = { "bash", "-c", "picom", "-b" };
+static const char *picomcmd[]  = { "bash", "-c", "picom -b && hsetroot -solid", col_gray1 };
 static const char *scrotcmd[] = { "scrot", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 
