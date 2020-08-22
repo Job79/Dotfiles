@@ -56,19 +56,21 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 };
-static const char *scrotcmd[] = { "scrot", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *nnn[]  = { "st", "-e", "nnn" };
-static const char *htop[]  = { "st", "-e","htop" };
-static const char *firefox[]  = { "firefox-developer-edition", NULL };
+static const char *firefoxcmd[]  = { "firefox-developer-edition", NULL };
+static const char *nnncmd[]  = { "st", "-e", "nnn" };
+static const char *htopcmd[]  = { "st", "-e", "htop" };
+static const char *picomcmd[]  = { "bash", "-c", "picom", "-b" };
+static const char *scrotcmd[] = { "scrot", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_m, 	   spawn,          {.v = firefox } },
-	{ MODKEY,                       XK_n, 	   spawn,          {.v = nnn } },
-	{ MODKEY,                       XK_b, 	   spawn,          {.v = htop } },
+	{ MODKEY,                       XK_m, 	   spawn,          {.v = firefoxcmd } },
+	{ MODKEY,                       XK_n, 	   spawn,          {.v = nnncmd } },
+	{ MODKEY,                       XK_b, 	   spawn,          {.v = htopcmd } },
+	{ MODKEY,                       XK_p, 	   spawn,          {.v = picomcmd } },
 	{ 0,                            XK_Print,  spawn,          {.v = scrotcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
