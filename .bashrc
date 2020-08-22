@@ -41,7 +41,7 @@ NC='\[\e[m\]'			# Color Reset
 ALERT="${BWhite}${On_Red}" # Bold White on red background
 
 # Useful aliases
-alias n='nnn'
+alias n='nnn -C'
 alias ls='ls -CF --color=auto'
 alias myip='curl ipv4.icanhazip.com'
 
