@@ -1,24 +1,22 @@
 # Basic tools
 nvim 			# Editor
-export EDITOR=nvim # make nvim default editor
 
 nnn 			# File manager
 feh				# Image viewer/background
 neofetch		# System info
-rxvt-unicode	# Terminal
 git				# Git
 aria2           # Torrent client
 scrot			# Screenshots
 
-# Install WM : i3
-xorg-server xorg-xinit i3-wm i3lock dmenu	# i3
+# Install WM : dwm 
+xorg-server xorg-xinit dmenu
 ttf-hack # Font
 
 ##! Create file "/etc/X11/xinit/xinitrc"
-## with content: "exec i3"
+## with content: "exec dwm"
 ## Install compisotor (picom)
 
-##! Append to ~/.bash_profile to autostart i3
+##! Append to ~/.bash_profile to autostart dwm 
 ##  if [[ "$(tty)" == '/dev/tty1' ]]; then
 ##         exec startx
 ##fi
@@ -27,7 +25,6 @@ adapta-gtk-theme arc-icon-theme lxappearance
 
 # Tools
 firefox-developer-edition	# Browser
-##! about:config -> ui.key.menuAccessKeyFocuses = false # Disable alt key
 
 # Optional
 ## Audio

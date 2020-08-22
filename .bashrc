@@ -51,4 +51,5 @@ PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 # Set prompt
 PS1="${Green}\u@\h${NC}: ${Blue}\w${NC} $ "
 
+# Set default editor
 export EDITOR=nvim
