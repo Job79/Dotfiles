@@ -1,0 +1,4 @@
+1. about:support > Profile Directory > Go to path
+2. Create a folder called "chrome"
+3. Move the "userChrome.css" to the chrome folder
+4. about:config > toolkit.legacyUserProfileCustomizations.stylesheets > true
