@@ -1,12 +1,13 @@
 # Basic tools
 nvim 			# Editor
 
-nnn 			# File manager
-feh				# Image viewer/background
+nnn 			# File manager feh				# Image viewer/background
 neofetch		# System info
 git				# Git
 aria2           # Torrent client
 scrot			# Screenshots
+picom           # Compositor
+hsetroot        # Background color - compositor
 
 # Install WM : dwm 
 xorg-server xorg-xinit dmenu
@@ -17,9 +18,9 @@ ttf-hack # Font
 ## Install compisotor (picom)
 
 ##! Append to ~/.bash_profile to autostart dwm 
-##  if [[ "$(tty)" == '/dev/tty1' ]]; then
-##         exec startx
-##fi
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+    exec startx
+fi
 # gtk Themes
 adapta-gtk-theme arc-icon-theme lxappearance
 
@@ -71,3 +72,12 @@ Section "InputClass"
         Option "ScrollMethod" "twofinger"
 EndSection
 "
+
+## vi mode bash
+# Creat file ~/.inputrc
+# With content: "
+set editing-mode vi
+"
+
+# Multiple screens
+xrandr --output HDMI-1 --auto --same-as eDP-1

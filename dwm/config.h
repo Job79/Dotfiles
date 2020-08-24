@@ -10,7 +10,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#187110";
+static const char col_cyan[]        = "#547858";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
@@ -58,11 +58,12 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 };
 static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[]  = { "firefox-developer-edition", NULL };
-static const char *nnncmd[]  = { "st", "-e", "bash", "-c", "nnn -C" };
+static const char *nnncmd[]  = { "st", "-e", "bash", "-i","-c", "nnn -C" };
 static const char *htopcmd[]  = { "st", "-e", "htop" };
 static const char *picomcmd[]  = { "bash", "-c", "picom -b && hsetroot -solid", col_gray1 };
-static const char *scrotcmd[] = { "scrot", NULL };
-static const char *slockcmd[] = { "slock", NULL };
+
+static const char *scrotcmd[]  = { "scrot", NULL };
+static const char *slockcmd[]  = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */

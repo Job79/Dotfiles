@@ -1,6 +1,6 @@
 set number
 syntax on
-colorscheme default 
+colorscheme desert
 
 " 24 bit color
 execute "set t_8f=\e[38;2;%lu;%lu;%lum"
