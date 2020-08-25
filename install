@@ -17,7 +17,7 @@ ttf-hack # Font
 ## with content: "exec dwm"
 ## Install compisotor (picom)
 
-##! Append to ~/.bash_profile to autostart dwm 
+##! Append to ~/.profile to autostart dwm 
 if [[ "$(tty)" == '/dev/tty1' ]]; then
     exec startx
 fi
