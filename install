@@ -73,11 +73,11 @@ Section "InputClass"
 EndSection
 "
 
-## vi mode bash
-# Creat file ~/.inputrc
-# With content: "
-set editing-mode vi
-"
-
 # Multiple screens
 xrandr --output HDMI-1 --auto --same-as eDP-1
+
+# Fix java dwm
+# Create file "/etc/profile.d/jre.sh"
+# with content: "
+export _JAVA_AWT_WM_NONREPARENTING=1
+"
