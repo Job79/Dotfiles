@@ -24,11 +24,11 @@
 }
 
 :root {
-	--font              : Fira Mono;
+	--font              : Hack;
 	--font-size         : 12px;
 	--font-weight       : bold;
-	--icon-size         : 16px        !important;
-	--button-size       : 14px        !important;
+	--icon-size         : 14px        !important;
+	--button-size       : 12px        !important;
 	--tab-min-height    : 20px        !important;
 	--toolbar-bgimage   : none        !important;
 	--arrowpanel-dimmed : transparent !important;
