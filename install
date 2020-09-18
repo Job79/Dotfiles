@@ -8,6 +8,7 @@ aria2           # Torrent client
 scrot			# Screenshots
 picom           # Compositor
 hsetroot        # Background color - compositor
+dvtm            # "Window manager" for the framebuffer
 
 # Install WM : dwm 
 xorg-server xorg-xinit dmenu
