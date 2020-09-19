@@ -25,25 +25,3 @@ export EDITOR=$VISUAL
 # Set prompt
 PS1=$'\E[34m$(if [[ "${PWD#$HOME}" = "$PWD" ]] then echo -n "$PWD"; else echo -n "~${PWD#$HOME}"; fi;)\E[0m ➤ '
 HISTFILE="$HOME/.sh_history"
-
-if [ "$TERM" = "linux" ]; then
-  /bin/echo -e "
-  \e]P0040404
-  \e]P13c7b43
-  \e]P200712c
-  \e]P3bdb850
-  \e]P4547858
-  \e]P5866d6d
-  \e]P66d715e
-  \e]P7c0b18b
-  \e]P87e745b
-  \e]P94a9451
-  \e]PA008a37
-  \e]PBd6d656
-  \e]PC619169
-  \e]PDa17878
-  \e]PE8a8a6e
-  \e]PFe6d4a7
-  "
-  clear
-fi

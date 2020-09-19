@@ -74,3 +74,6 @@ xrandr --output HDMI-1 --auto --same-as eDP-1
 # with content: "
 export _JAVA_AWT_WM_NONREPARENTING=1
 "
+
+# Colors TTY
+cp issue /etc/issue
