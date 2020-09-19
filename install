@@ -14,14 +14,6 @@ dvtm            # "Window manager" for the framebuffer
 xorg-server xorg-xinit dmenu
 ttf-hack # Font
 
-##! Create file "/etc/X11/xinit/xinitrc"
-## with content: "exec dwm"
-## Install compisotor (picom)
-
-##! Append to ~/.profile to autostart dwm 
-if [[ "$(tty)" == '/dev/tty1' ]]; then
-    exec startx
-fi
 # gtk Themes
 adapta-gtk-theme arc-icon-theme lxappearance
 
