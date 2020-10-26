@@ -6,10 +6,12 @@
 [[ $- != *i* ]] && return
 
 # Useful aliases
+alias b='bash'
 alias n='nnn -C'
 alias c='clear'
 alias ls='ls -CF --color=auto'
 alias myip='curl ipv4.icanhazip.com'
+alias fsearch='_(){ find . -name "$2" | xargs grep -i "$1"; }; _'
 
 # Colors when using pacman with less
 alias less='less -R'
@@ -17,7 +19,7 @@ alias pacman='pacman --color=always'
 
 # Monitor config
 alias monitor_mirror='xrandr --output HDMI-1 --auto --same-as eDP-1'
-alias monitor_on='xrandr --output HDMI-1 --auto --right-of eDP-1'
+alias monitor_on='xrandr --output HDMI-1 --auto --above eDP-1'
 alias monitor_off='xrandr --output HDMI-1 --off'
 
 # Enviroment variables
@@ -30,7 +32,3 @@ PS1=$'\E[34m$(if [[ "${PWD#$HOME}" = "$PWD" ]] then echo -n "$PWD"; else echo -n
 
 # Enable history
 HISTFILE="$HOME/.sh_history"
-
-fsearch() {
-        find . -name "$1"  | xargs grep -i "$2"
-}
