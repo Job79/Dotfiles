@@ -45,6 +45,8 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #include <X11/XF86keysym.h>
+#define TERMINAL "/usr/local/bin/st"
+#define SHELL "/usr/bin/mksh"
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -54,33 +56,34 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define CMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define ETERMINAL(cmd) { .v = (const char*[]){ TERMINAL, "-e", cmd } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { TERMINAL, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-    { 0,                            XF86XK_AudioRaiseVolume, spawn, CMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
-    { 0,                            XF86XK_AudioLowerVolume, spawn, CMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
 
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_m,      spawn,          CMD("firefox-developer-edition") },
-	{ MODKEY,                       XK_n,      spawn,          CMD("st -e mksh -i -c \"nnn -C\"") },
-	{ MODKEY,                       XK_b,      spawn,          CMD("st -e htop") },
-	{ MODKEY,                       XK_p,      spawn,          CMD("picom -b && hsetroot -solid #111111") },
-	{ MODKEY,                       XK_x,      spawn,          CMD("slock") },
-	{ MODKEY,                       XK_Print,  spawn,          CMD("scrot") },
-	{ MODKEY|ShiftMask,             XK_Print,  spawn,          CMD("scrot -s") },
+	{ MODKEY,                       XK_m,      spawn,          {.v = (const char*[]){ "firefox-developer-edition", NULL} } },
+	{ MODKEY,                       XK_n,      spawn,          {.v = (const char*[]){ TERMINAL, "-e", SHELL, "-i", "-c", "nnn -C" } } },
+	{ MODKEY,                       XK_b,      spawn,          ETERMINAL("htop") },
+	{ MODKEY,                       XK_v,      spawn,          ETERMINAL("nmtui") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("picom -b && hsetroot -solid #111111") },
+	{ MODKEY,                       XK_x,      spawn,          {.v = (const char*[]){ "slock", NULL } } },
+	{ 0,                            XK_Print,  spawn,          SHCMD("scrot") },
+	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("sleep 0.2 && scrot -s") },
 
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_l,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_h,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },

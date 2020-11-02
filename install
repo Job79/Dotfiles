@@ -1,14 +1,13 @@
 # Basic tools
 nvim 			# Editor
-
-nnn 			# File manager feh				# Image viewer/background
+nnn 			# File manager
+feh				# Image viewer/background
 neofetch		# System info
-git				# Git
 aria2           # Torrent client
 scrot			# Screenshots
 picom           # Compositor
 hsetroot        # Background color - compositor
-dvtm            # "Window manager" for the framebuffer
+firefox-developer-edition	# Browser
 
 # Install WM : dwm 
 xorg-server xorg-xinit dmenu
@@ -17,22 +16,19 @@ ttf-hack # Font
 # gtk Themes
 adapta-gtk-theme arc-icon-theme lxappearance
 
-# Tools
-firefox-developer-edition	# Browser
-
-# Optional
-## Audio
+### Optional
+# Audio
 pulseaudio
 pavucontrol 	# Gui for pulseaudio
 
-## Multiple screens
+# Multiple screens
 xorg-xrandr
 arandr			# Gui for xorg-xrandr
 
-## Android phone
+# Android phone
 jmtpfs
 
-## Install yay
+# Install yay
 fakeroot binutils make gcc	# Used for building packages
 #-> git clone https://aur.archlinux.org/yay.git
 #-> cd yay
@@ -66,14 +62,8 @@ Section "InputClass"
 EndSection
 "
 
-# Multiple screens
-xrandr --output HDMI-1 --auto --same-as eDP-1
-
 # Fix java dwm
 # Create file "/etc/profile.d/jre.sh"
 # with content: "
 export _JAVA_AWT_WM_NONREPARENTING=1
 "
-
-# Colors TTY
-cp issue /etc/issue
