@@ -6,17 +6,17 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#151515";
-static const char col_gray3[]       = "#666666";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#547858";
+static const char *fonts[]          = { "Hack:size=10" };
+static const char dmenufont[]       = "Hack:size=10";
+static const char col_gray1[]       = "#050505";
+static const char col_gray2[]       = "#111111";
+static const char col_gray3[]       = "#8f8467";
+static const char col_gray4[]       = "#e5d6ae";
+static const char col_cyan[]        = "#486d4a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan  },
 };
 
 /* tagging */
@@ -27,14 +27,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	/* class                        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "st",                         NULL,     NULL,           0,         0,          1,           0,        -1 },
+   	{ "microsoft teams - preview",NULL,"Microsoft Teams Notification",0, 1,          0,           1,        -1 },
+   	{ "Microsoft Teams - Preview",NULL,"Microsoft Teams Notification",0, 1,          0,           1,        -1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -51,12 +53,11 @@ static const Layout layouts[] = {
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define ETERMINAL(cmd) { .v = (const char*[]){ TERMINAL, "-e", cmd } }
+#define SHTERM(cmd) { .v = (const char*[]){ TERMINAL, "-e", cmd } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -71,13 +72,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = (const char*[]){ "firefox-developer-edition", NULL} } },
-	{ MODKEY,                       XK_n,      spawn,          {.v = (const char*[]){ TERMINAL, "-e", SHELL, "-i", "-c", "nnn -C" } } },
-	{ MODKEY,                       XK_b,      spawn,          ETERMINAL("htop") },
-	{ MODKEY,                       XK_v,      spawn,          ETERMINAL("nmtui") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("picom -b && hsetroot -solid #111111") },
+	{ MODKEY,                       XK_n,      spawn,          {.v = (const char*[]){ TERMINAL, "-e", SHELL, "-i", "-c", "nnn" } } },
+	{ MODKEY,                       XK_b,      spawn,          SHTERM("htop") },
+	{ MODKEY,                       XK_v,      spawn,          SHTERM("nmtui") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("picom -b") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall picom") },
 	{ MODKEY,                       XK_x,      spawn,          {.v = (const char*[]){ "slock", NULL } } },
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot") },
-	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("sleep 0.2 && scrot -s") },
+	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("killall picom && sleep 0.2 && scrot -s") },
 
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

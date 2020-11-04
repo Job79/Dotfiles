@@ -3,7 +3,7 @@
 /*
  * appearance
  */
-static char *font = "Hack:pixelsize=17:antialias=true:autohint=true";
+static char *font = "Hack:size=13:antialias=true";
 static int borderpx = 10;
 
 /*
@@ -94,24 +94,24 @@ unsigned int tabspaces = 4;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
   /* 8 normal colors */
-  [0] = "#000000", /* black   */
-  [1] = "#3c7b43", /* red     */
-  [2] = "#00712c", /* green   */
-  [3] = "#bdb850", /* yellow  */
-  [4] = "#547858", /* blue    */
-  [5] = "#866d6d", /* magenta */
-  [6] = "#6d715e", /* cyan    */
-  [7] = "#c0b18b", /* white   */
+  [0] = "#050505", /* black   */
+  [1] = "#8f1914", /* red     */
+  [2] = "#8f8e18", /* green   */
+  [3] = "#c68d1e", /* yellow  */
+  [4] = "#36695b", /* blue    */
+  [5] = "#9a5575", /* magenta */
+  [6] = "#486d4a", /* cyan    */
+  [7] = "#8f8467", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#7e745b", /* black   */
-  [9]  = "#4a9451", /* red     */
-  [10] = "#008a37", /* green   */
-  [11] = "#d6d656", /* yellow  */
-  [12] = "#619169", /* blue    */
-  [13] = "#a17878", /* magenta */
-  [14] = "#8a8a6e", /* cyan    */
-  [15] = "#e6d4a7", /* white   */
+  [8]  = "#2a2621", /* black   */
+  [9]  = "#ae3a2d", /* red     */
+  [10] = "#adb024", /* green   */
+  [11] = "#dfa82a", /* yellow  */
+  [12] = "#448677", /* blue    */
+  [13] = "#b26488", /* magenta */
+  [14] = "#58845a", /* cyan    */
+  [15] = "#e5d6ae", /* white   */
 };
 
 
