@@ -19,6 +19,11 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan  },
 };
 
+static const char *const autostart[] = {
+    "xset", "r", "rate", "175", "37", NULL,
+    NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
