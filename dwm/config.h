@@ -8,10 +8,10 @@ static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack:size=10" };
 static const char dmenufont[]       = "Hack:size=10";
-static const char col_gray1[]       = "#050505";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#111111";
-static const char col_gray3[]       = "#8f8467";
-static const char col_gray4[]       = "#e5d6ae";
+static const char col_gray3[]       = "#c6bfb3";
+static const char col_gray4[]       = "#FFFEF2";
 static const char col_cyan[]        = "#486d4a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
