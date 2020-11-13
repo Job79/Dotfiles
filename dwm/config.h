@@ -84,7 +84,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall picom") },
 	{ MODKEY,                       XK_x,      spawn,          {.v = (const char*[]){ "slock", NULL } } },
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot") },
-	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("killall picom && sleep 0.2 && scrot -s") },
+	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("pkill picom || true && sleep 0.2 && scrot -s") },
 
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

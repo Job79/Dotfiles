@@ -1,12 +1,12 @@
 # Basic tools
 nvim 			# Editor
+git                     #
 nnn 			# File manager
-feh				# Image viewer/background
-neofetch		# System info
-aria2           # Torrent client
+feh			# Image viewer/background
+aria2                   # Torrent client
 scrot			# Screenshots
-picom           # Compositor
-hsetroot        # Background color - compositor
+picom                   # Compositor
+hsetroot                # Background color when using compositor
 firefox-developer-edition	# Browser
 
 # Install WM : dwm 
@@ -16,25 +16,34 @@ ttf-hack # Font
 # gtk Themes
 adapta-gtk-theme arc-icon-theme lxappearance
 
+# doas (sudo replacement)
+opendoas
+# config: /etc/doas.conf "permit persist :wheel"
+
 ### Optional
+# wifi (iwd)
+# enable dhcp config: (/etc/iwd/main.conf): "
+[General]
+EnableNetworkConfiguration=true
+"
+
 # Audio
 pulseaudio
-pavucontrol 	# Gui for pulseaudio
+pulsemixer
 
 # Multiple screens
 xorg-xrandr
-arandr			# Gui for xorg-xrandr
 
 # Android phone
 jmtpfs
 
-# Install yay
-fakeroot binutils make gcc	# Used for building packages
-#-> git clone https://aur.archlinux.org/yay.git
-#-> cd yay
+# Install trizen (AUR helper) 
+fakeroot binutils make gcc      # Used for building packages
+#-> git clone https://aur.archlinux.org/trizen.git
+#-> cd trizen 
 #-> makepkg -si
 
-# Powertop (Laptop only)
+# Powertop
 # Create file /etc/systemd/system/powertop.service
 # with content: "
 [Unit]
@@ -64,6 +73,4 @@ EndSection
 
 # Fix java dwm
 # Create file "/etc/profile.d/jre.sh"
-# with content: "
-export _JAVA_AWT_WM_NONREPARENTING=1
-"
+# with content: "export _JAVA_AWT_WM_NONREPARENTING=1"

@@ -4,7 +4,7 @@
  * appearance
  */
 static char *font = "Hack:size=13:antialias=true";
-static int borderpx = 10;
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -94,7 +94,7 @@ unsigned int tabspaces = 4;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
   /* 8 normal colors */
-  [0] = "#111111", /* black   */
+  [0] = "#1C1C1C", /* black   */
   [1] = "#8f1914", /* red     */
   [2] = "#8f8e18", /* green   */
   [3] = "#c68d1e", /* yellow  */
