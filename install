@@ -13,8 +13,12 @@ firefox-developer-edition	# Browser
 xorg-server xorg-xinit dmenu
 ttf-hack # Font
 
-# gtk Themes
-adapta-gtk-theme arc-icon-theme lxappearance
+# gtk dark theme
+# config: .config/gtk-3.0/settings.ini
+# content: "
+[Settings]
+gtk-application-prefer-dark-theme=true
+"
 
 # doas (sudo replacement)
 opendoas
