@@ -81,7 +81,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      spawn,          SHTERM("htop") },
 	{ MODKEY,                       XK_v,      spawn,          SHTERM("nmtui") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("picom -b") },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("killall picom") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("pkill picom") },
 	{ MODKEY,                       XK_x,      spawn,          {.v = (const char*[]){ "slock", NULL } } },
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot") },
 	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("pkill picom || true && sleep 0.2 && scrot -s") },

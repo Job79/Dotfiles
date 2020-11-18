@@ -1,14 +1,20 @@
-syntax on
-set number
-colo desert
+let config_dir = "~/.config/nvim/"
 
-" tabs and spaces
-set tabstop=4
-set softtabstop=4
-set expandtab
+execute "source" config_dir . "/plugins/plugins.vim"
+" execute "source" config_dir . "/plugins/coc.vim"
 
-set hidden
-set nobackup
-set nowritebackup
+" 1 tab = 4 spaces
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-set updatetime=300
+" Use system clipboard
+set clipboard+=unnamedplus
+
+" Highlight cursorline
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+set cursorline
+
+set number hidden
+set nowritebackup nobackup " Disable backup files
+set cmdheight=2 " More space for messages
+set updatetime=300 " Default (4000) leads to noticeable delays
+set shortmess+=c " Don't pass messages to |ins-completion-menu|
