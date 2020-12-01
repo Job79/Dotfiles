@@ -1,17 +1,16 @@
 # Basic tools
-nvim 			# Editor
-git                     #
-nnn 			# File manager
-feh			# Image viewer/background
-aria2                   # Torrent client
-scrot			# Screenshots
-picom                   # Compositor
-hsetroot                # Background color when using compositor
+nvim 			        # Editor
+git                             # Version control
+nnn 			        # File manager
+feh	        		# Image viewer/background
+aria2                           # Torrent client
+scrot			        # Screenshots
+picom                           # Compositor
 firefox-developer-edition	# Browser
+connman                         # Network manager
 
 # Install WM : dwm 
 xorg-server xorg-xinit dmenu
-ttf-hack # Font
 
 # gtk dark theme
 # config: .config/gtk-3.0/settings.ini
@@ -20,7 +19,7 @@ ttf-hack # Font
 gtk-application-prefer-dark-theme=true
 "
 
-# doas (sudo replacement)
+# doas (simple sudo replacement)
 opendoas
 # config: /etc/doas.conf "permit persist :wheel"
 
@@ -75,6 +74,6 @@ Section "InputClass"
 EndSection
 "
 
-# Fix java dwm
+# Fix java gui dwm
 # Create file "/etc/profile.d/jre.sh"
 # with content: "export _JAVA_AWT_WM_NONREPARENTING=1"

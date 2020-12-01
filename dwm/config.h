@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=10" };
-static const char dmenufont[]       = "Hack:size=10";
+static const char *fonts[]          = { "Source Code Pro:size=12" };
+static const char dmenufont[]       = "Source Code Pro:size=12";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#111111";
 static const char col_gray3[]       = "#c6bfb3";
@@ -25,7 +25,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -79,12 +79,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      spawn,          {.v = (const char*[]){ "firefox-developer-edition", NULL} } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = (const char*[]){ TERMINAL, "-e", SHELL, "-i", "-c", "nnn" } } },
 	{ MODKEY,                       XK_b,      spawn,          SHTERM("htop") },
-	{ MODKEY,                       XK_v,      spawn,          SHTERM("nmtui") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("picom -b") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("pkill picom") },
 	{ MODKEY,                       XK_x,      spawn,          {.v = (const char*[]){ "slock", NULL } } },
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot") },
-	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("pkill picom || true && sleep 0.2 && scrot -s") },
+	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("pkill picom; sleep 0.2; scrot -s") },
 
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

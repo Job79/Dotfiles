@@ -3,7 +3,7 @@
 /*
  * appearance
  */
-static char *font = "Hack:size=13:antialias=true";
+static char *font = "Source Code Pro:size=14";
 static int borderpx = 8;
 
 /*
