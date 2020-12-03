@@ -8,8 +8,8 @@ static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Source Code Pro:size=12" };
 static const char dmenufont[]       = "Source Code Pro:size=12";
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#111111";
+static const char col_gray1[]       = "#191919";
+static const char col_gray2[]       = "#191919";
 static const char col_gray3[]       = "#c6bfb3";
 static const char col_gray4[]       = "#FFFEF2";
 static const char col_cyan[]        = "#486d4a";
@@ -52,8 +52,8 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #include <X11/XF86keysym.h>
-#define TERMINAL "/usr/local/bin/st"
-#define SHELL "/usr/bin/mksh"
+#define TERMINAL "st"
+#define SHELL "mksh"
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
