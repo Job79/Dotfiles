@@ -18,3 +18,8 @@ set nowritebackup nobackup " Disable backup files
 set cmdheight=2 " More space for messages
 set updatetime=300 " Default (4000) leads to noticeable delays
 set shortmess+=c " Don't pass messages to |ins-completion-menu|
+
+" Shortcuts
+nmap <C-j> :bn<CR>
+nmap <C-k> :bp<CR>
+nmap <C-x> :bd<CR>
