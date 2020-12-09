@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-    "xset", "r", "rate", "150", "45", NULL,
+    "xset", "r", "rate", "160", "40", NULL,
     NULL /* terminate */
 };
 
