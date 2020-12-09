@@ -1,3 +1,6 @@
+" Use ale whith coc
+let g:ale_disable_lsp = 1
+
 call plug#begin('~/.vim/plugged')
 
 " Autocompletion etc...

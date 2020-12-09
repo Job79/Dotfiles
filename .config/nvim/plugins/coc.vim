@@ -1,10 +1,8 @@
 " Extensions 
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 let g:coc_global_extensions = [
-  \ 'coc-spell-checker', 
   \ 'coc-html', 
   \ 'coc-css', 
-  \ 'coc-tsserver', 
   \ 'coc-java', 
   \ ]
 
