@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=12" };
-static const char dmenufont[]       = "Source Code Pro:size=12";
+static const char *fonts[]          = { "Source Code Pro:pixelsize=14" };
+static const char dmenufont[]       = "Source Code Pro:pixelsize=14";
 static const char col_gray1[]       = "#191919";
 static const char col_gray2[]       = "#191919";
 static const char col_gray3[]       = "#c6bfb3";

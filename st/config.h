@@ -3,7 +3,7 @@
 /*
  * appearance
  */
-static char *font = "Source Code Pro:size=14";
+static char *font = "Source Code Pro:pixelsize=18";
 static int borderpx = 8;
 
 /*
