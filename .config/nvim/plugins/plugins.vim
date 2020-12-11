@@ -12,9 +12,6 @@ call plug#begin('~/.vim/plugged')
 " Color theme
 Plug 'morhetz/gruvbox'
 
-" File explorer
-Plug 'scrooloose/nerdtree' 
-
 " FZF file search
 Plug 'kien/ctrlp.vim'
 
@@ -36,5 +33,4 @@ let g:bufferline_echo = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Shortcuts
-nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-p> :CtrlP<CR>
