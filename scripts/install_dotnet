@@ -1,0 +1,8 @@
+# PREPARE
+cd /tmp
+wget https://dot.net/v1/dotnet-install.sh
+apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
+
+# INSTALL
+bash dotnet-install.sh -c 5.0 -i /opt
+ln -sf /opt/dotnet /bin/dotnet

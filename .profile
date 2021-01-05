@@ -1,10 +1,11 @@
 # Enviroment variables
-export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
-export VISUAL=nvim
-export EDITOR=$VISUAL
+export EDITOR=nvim
 export NNN_COLORS='6666'
 
+# Configure ash
+export ENV="/home/job/.shrc"
+export HISTFILE="~/.sh_history"
+export PS1=$'\e[36m$([ "${PWD#$HOME}" == "$PWD" ] && echo "$PWD" || echo "~${PWD#$HOME}")\e[0m\e[01m > \e[0m'
+
 # Auto start dwm
-if [[ "$(tty)" == '/dev/tty1' ]]; then
-    exec startx /usr/local/bin/dwm
-fi
+[ "$(tty)" == '/dev/tty1' ] && exec startx /usr/local/bin/dwm

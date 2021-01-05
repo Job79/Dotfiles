@@ -1,0 +1,4 @@
+# Useful aliases
+alias n='nnn'
+alias myip='curl api.ipify.org'
+alias apkls='apk info | xargs apk info -r | sed "s/\-\d.*\-r\d.*//" | tr "\n" " " | sed "s/  /    /" | grep -Eo "  [^ ]+?  "'
