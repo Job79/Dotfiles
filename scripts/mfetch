@@ -14,7 +14,7 @@ c2="${c1}"		# info name
 c3="${r}[15m"		# info
 
 cat <<EOF
- ${c1}   /\ /\      ${r}${b}[31m${USER}${c0}@${r}${b}[31m${host}${c0}
+ ${c1}   /\ /\      ${r}${b}[31m${USER}${c0}@${r}${b}[31m${host}${c3}
    /${c1}/ ${c0}\  \     ${c2}os		${c3}${os}
   /${c1}/   ${c0}\  \    ${c2}kernel	${c3}${kernel}
  /${c1}/     ${c0}\  \   ${c2}mem		${c3}${mem}
