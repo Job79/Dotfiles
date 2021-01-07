@@ -1,0 +1,6 @@
+apk add doas
+echo "permit persist :wheel" > /etc/doas.conf
+
+printf "doas user: "
+read user
+addgroup "$user" wheel

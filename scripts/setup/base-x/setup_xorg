@@ -1,0 +1,10 @@
+# INSTALL PACKAGES
+setup-xorg-base
+
+# XORG NON-ROOT
+chown root:input /usr/bin/Xorg
+chmod g+s /usr/bin/Xorg
+
+printf "xorg user: "
+read user
+addgroup "$user" video

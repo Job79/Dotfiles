@@ -1,0 +1,5 @@
+# BUILD DEPENDENCIES
+apk add make gcc g++ libx11-dev libxinerama-dev libxft-dev
+
+# INSTALL
+make clean install

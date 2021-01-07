@@ -1,0 +1,8 @@
+# BUILD DEPENDENCIES
+apk add make gcc g++ libx11-dev libxft-dev libxinerama-dev libxrandr-dev linux-headers
+
+# INSTALL
+make clean install
+
+# REMOVE DEPENDENCIES
+apk del libxrandr-dev linux-headers

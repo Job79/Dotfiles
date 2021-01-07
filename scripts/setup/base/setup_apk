@@ -1,0 +1,6 @@
+cat <<\EOF > /etc/apk/repositories
+https://ams.edge.kernel.org/alpine/edge/main
+https://ams.edge.kernel.org/alpine/edge/community
+https://ams.edge.kernel.org/alpine/edge/testing
+EOF
+apk update

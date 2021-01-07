@@ -1,0 +1,2 @@
+apk add linux-edge
+apk del --purge linux-lts

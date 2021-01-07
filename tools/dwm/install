@@ -1,0 +1,7 @@
+# BUILD DEPENDENCIES
+apk add make gcc g++ libx11-dev libxft-dev libxinerama-dev
+
+# INSTALL
+apk add font-adobe-source-code-pro # font
+apk add xset # autostart change repeat rate
+make clean install

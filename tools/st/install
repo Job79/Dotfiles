@@ -1,0 +1,6 @@
+# BUILD DEPENDENCIES
+apk add make gcc g++ libx11-dev libxft-dev libxinerama-dev
+
+# INSTALL
+apk add font-adobe-source-code-pro ncurses
+make clean install

@@ -1,0 +1,3 @@
+sed -i 's/#rc_parallel="NO"/rc_parallel="YES"' /etc/rc.conf # enable paralell
+sed -i '/tty[3-8]/d' /etc/inittab # remove unused tty instances
+rc-update del crond
