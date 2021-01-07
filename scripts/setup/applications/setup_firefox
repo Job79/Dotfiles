@@ -2,4 +2,4 @@ apk add firefox
 ( firefox & )
 
 git clone https://github.com/Job79/KeyFox
-( cd KeyFox; sh install; rm -r KeyFox; )
+( cd KeyFox; sh install; rm -r ../KeyFox; )
