@@ -1,0 +1,23 @@
+#!/bin/sh
+host="$(cat /etc/hostname)"
+os="$(head -n 1 /etc/os-release | cut -d '"' -f2)"
+kernel="$(uname -r | cut -d'-' -f1-2)"
+mem="$(free -m | awk 'NR==2{printf "%s/%sMB (%.0f%%)", $3,$2,$3*100/$2}')"
+disk="$(df -h | awk '$NF=="/"{printf "%d/%dGB (%s)", $3,$2,$5}')"
+packages="$(apk info | wc -l)"
+
+r="[0m" 		# reset
+b="[1m" 		# bold
+c0="${r}${b}[15m"	# logo
+c1="${r}${b}[34m"	# logo accent 
+c2="${c1}"		# info name
+c3="${r}[15m"		# info
+
+cat <<EOF
+ ${c1}   /\ /\      ${r}${b}[31m${USER}${c0}@${r}${b}[31m${host}${c0}
+   /${c1}/ ${c0}\  \     ${c2}os		${c3}${os}
+  /${c1}/   ${c0}\  \    ${c2}kernel	${c3}${kernel}
+ /${c1}/     ${c0}\  \   ${c2}mem		${c3}${mem}
+${c1}//       ${c0}\  \  ${c2}disk		${c3}${disk}
+          ${c0}\    ${c2}pkgs		${c3}${packages}${r}
+EOF
