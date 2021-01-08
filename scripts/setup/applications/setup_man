@@ -1,0 +1,2 @@
+apk add man-pages mandoc
+# apk add docs # download docs for everything
