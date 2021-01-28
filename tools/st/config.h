@@ -3,7 +3,7 @@
 /*
  * appearance
  */
-static char *font = "Source Code Pro:pixelsize=18";
+static char *font = "Inconsolata:pixelsize=19";
 static int borderpx = 8;
 
 /*
@@ -89,29 +89,29 @@ char *termname = "st";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 4;
+unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
   /* 8 normal colors */
-  [0] = "#1C1C1C", /* black   */
-  [1] = "#8f1914", /* red     */
-  [2] = "#8f8e18", /* green   */
-  [3] = "#c68d1e", /* yellow  */
-  [4] = "#36695b", /* blue    */
-  [5] = "#9a5575", /* magenta */
-  [6] = "#486d4a", /* cyan    */
-  [7] = "#8f8467", /* white   */
+  [0] = "#1c1b18", /* black   */
+  [1] = "#b21f19", /* red     */
+  [2] = "#979619", /* green   */
+  [3] = "#d0941f", /* yellow  */
+  [4] = "#3e7a69", /* blue    */
+  [5] = "#a35a7c", /* magenta */
+  [6] = "#537e55", /* cyan    */
+  [7] = "#a58f78", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#4b443c", /* black   */
-  [9]  = "#ae3a2d", /* red     */
-  [10] = "#adb024", /* green   */
-  [11] = "#dfa82a", /* yellow  */
-  [12] = "#448677", /* blue    */
-  [13] = "#b26488", /* magenta */
-  [14] = "#58845a", /* cyan    */
-  [15] = "#d9caa4", /* white   */
+  [8]  = "#847667", /* black   */
+  [9]  = "#d84534", /* red     */
+  [10] = "#b6b926", /* green   */
+  [11] = "#e8af2c", /* yellow  */
+  [12] = "#4e9d8b", /* blue    */
+  [13] = "#c26d94", /* magenta */
+  [14] = "#679a69", /* cyan    */
+  [15] = "#dbcba5", /* white   */
 };
 
 

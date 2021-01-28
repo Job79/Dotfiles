@@ -2,6 +2,10 @@
 apk add make gcc g++ libx11-dev libxft-dev libxinerama-dev
 
 # INSTALL
-apk add font-adobe-source-code-pro # font
-apk add xset # autostart change repeat rate
+apk add xset xsetroot
 make clean install
+
+# Fix java applications dwm
+# echo 'export _JAVA_AWT_WM_NONREPARENTING=1' > /etc/profile.d/jre.sh
+
+apk del libx11-dev libxft-dev libxinerama-dev

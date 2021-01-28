@@ -9,9 +9,6 @@ call plug#begin('~/.local/nvim')
 " Plug 'OmniSharp/omnisharp-vim'
 " Plug 'dense-analysis/ale'
 
-" Color theme
-Plug 'morhetz/gruvbox'
-
 " FZF file search
 Plug 'kien/ctrlp.vim'
 
@@ -19,12 +16,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-bufferline'
 call plug#end()
 
-" Apply color scheme
-let g:gruvbox_contrast_dark = 'hard'
-colo gruvbox
-
 " Show buffers in status line 
-let g:bufferline_echo = 0
+ let g:bufferline_echo = 0
     autocmd VimEnter *
       \ let &statusline='%{bufferline#refresh_status()}'
         \ .bufferline#get_status_string()

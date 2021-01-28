@@ -1,27 +1,29 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const int gappx              = 8;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:pixelsize=14" };
-static const char dmenufont[]       = "Source Code Pro:pixelsize=14";
-static const char col_gray1[]       = "#191919";
-static const char col_gray2[]       = "#191919";
-static const char col_gray3[]       = "#c6bfb3";
-static const char col_gray4[]       = "#FFFEF2";
-static const char col_cyan[]        = "#486d4a";
+static const char *fonts[]          = { "Inconsolata:pixelsize=15" };
+static const char dmenufont[]       = "Inconsolata:pixelsize=15";
+static const char col0[]            = "#0b0b09"; /* background */
+static const char col1[]            = "#2f2e28"; /* inactive border */
+static const char col2[]            = "#537e55"; /* border / theme color */
+static const char col3[]            = "#f7f0e0"; /* inactive text */
+static const char col4[]            = "#fff9e9"; /* text */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan  },
+	[SchemeNorm] = { col3, col0, col1 },
+	[SchemeSel]  = { col4, col0, col2 },
 };
 
 static const char *const autostart[] = {
-    "xset", "r", "rate", "160", "40", NULL,
-    NULL
+ 	"xset", "r", "rate", "160", "40", NULL,
+	"xsetroot", "-solid", col0, NULL,
+	NULL /* terminate */
 };
 
 /* tagging */
@@ -32,10 +34,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "st",                         NULL,     NULL,           0,         0,          1,           0,        -1 },
-   	{ "microsoft teams - preview",NULL,"Microsoft Teams Notification",0, 1,          0,           1,        -1 },
-   	{ "Microsoft Teams - Preview",NULL,"Microsoft Teams Notification",0, 1,          0,           1,        -1 },
+	/* class     	instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "st",   	NULL,     NULL,           0,         0,          1,           0,        -1 },
+   	{ "microsoft teams - preview",NULL,"Microsoft Teams Notification",0, 1,0,     1,	-1 },
+   	{ "Microsoft Teams - Preview",NULL,"Microsoft Teams Notification",0, 1,0,      1,	-1 },
 };
 
 /* layout(s) */
@@ -58,6 +60,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} },
 
+/* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define TERMINAL "st"
 #define SHELL "ash"
 #define CMD(cmd) { .v = (const char*[]){ cmd, NULL } }
@@ -66,23 +69,21 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col0, "-nf", col3, "-sb", col2, "-sf", col4, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
-
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_m,      spawn,          CMD("firefox") },
 	{ MODKEY,                       XK_n,      spawn,          SHTERM("nnn") },
 	{ MODKEY,                       XK_b,      spawn,          SHTERM("htop") },
 	{ MODKEY,                       XK_x,      spawn,          CMD("slock") },
-	{ 0,                            XK_Print,  spawn,          CMD("scrot") },
-	{ ShiftMask,                    XK_Print,  spawn,          CMD("scrot -s") },
-
+	{ MODKEY,                       XK_s,      spawn,          CMD("scrot") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          CMD("scrot -s") },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -104,7 +105,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -133,3 +133,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
