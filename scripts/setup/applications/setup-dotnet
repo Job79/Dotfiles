@@ -1,5 +1,5 @@
 # DEPENDENCIES 
-apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
+apk add bash curl icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
 
 # INSTALL
 cd /tmp
