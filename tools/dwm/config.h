@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx              = 8;        /* gaps between windows */
+static const int gappx              = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 0;        /* 0 means no bar */
@@ -11,7 +11,7 @@ static const char *fonts[]          = { "Inconsolata:pixelsize=15" };
 static const char dmenufont[]       = "Inconsolata:pixelsize=15";
 static const char col0[]            = "#0b0b09"; /* background */
 static const char col1[]            = "#2f2e28"; /* inactive border */
-static const char col2[]            = "#537e55"; /* border / theme color */
+static const char col2[]            = "#458047"; /* border / theme color */
 static const char col3[]            = "#f7f0e0"; /* inactive text */
 static const char col4[]            = "#fff9e9"; /* text */
 static const char *colors[][3]      = {
