@@ -1,3 +1,4 @@
+#!/bin/sh
 # DEPENDENCIES 
 apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
 

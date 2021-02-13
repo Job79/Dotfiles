@@ -1,0 +1,44 @@
+#!/bin/sh
+apk add iptables ip6tables
+
+#======================================================================================================================================
+for i in 'iptables' 'ip6tables'; do
+	$i -F # delete old rules
+
+	#=== INPUT ====
+	## DROP
+	$i -A INPUT -j DROP -p tcp --tcp-flags ALL ALL							# XMAS
+	$i -A INPUT -j DROP -p tcp --tcp-flags ALL NONE							# NULL packets
+
+	##ALLOW
+	$i -A INPUT -j ACCEPT -m state --state RELATED,ESTABLISHED					# allow incoming traffic from established connections
+	$i -A INPUT -j ACCEPT -i lo									# allow incoming traffic from loopback interface
+
+	#$i -A INPUT -j ACCEPT -p tcp --match multiport --dports 80,443 				# open web server
+
+	$i -A INPUT -p tcp --dport 22 --syn -m recent --set                                             # max 2 new connections every 3 minutes per ip
+	$i -A INPUT -j DROP -p tcp --dport 22 --syn -m recent --update --seconds 180 --hitcount 3
+	$i -A INPUT -j ACCEPT -p tcp --dport 22                                                         # allow ssh
+
+
+	[ "$i" = 'iptables' ] && iptables  -A INPUT -j ACCEPT -p icmp --icmp-type echo-request		# allow ping ipv4
+	[ "$i" = 'ip6tables' ] && ip6tables -A INPUT -j ACCEPT -p icmpv6 --icmpv6-type echo-request 	# allow ping ipv6
+
+	$i -A INPUT -j DROP										# block all incoming traffic by default
+
+	#=== OUTPUT ===
+	$i -A OUTPUT -j ACCEPT -m state --state RELATED,ESTABLISHED					# allow outgoing traffic to established connections
+	$i -A OUTPUT -j ACCEPT -o lo 									# allow outgoing traffic to loopback interface
+	$i -A OUTPUT -j ACCEPT -m owner --gid-owner root						# allow outgoing traffic from root user
+	$i -A OUTPUT -j ACCEPT -m owner --gid-owner network						# allow outgoing traffic from network user
+	$i -A OUTPUT -j REJECT 										# block all outgoing traffic by default
+
+	#=== FORWARD ===
+	$i -A FORWARD -j REJECT 									# block all forward traffic
+done
+#======================================================================================================================================
+
+service iptables save
+rc-update add iptables boot
+service ip6tables save
+rc-update add ip6tables boot

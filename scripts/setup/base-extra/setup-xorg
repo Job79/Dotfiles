@@ -1,3 +1,4 @@
+#!/bin/sh
 # INSTALL PACKAGES
 setup-xorg-base
 

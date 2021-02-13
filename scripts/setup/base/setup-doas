@@ -1,3 +1,4 @@
+#!/bin/sh
 apk add doas
 echo "permit persist :wheel" > /etc/doas.conf
 
