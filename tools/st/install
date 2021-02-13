@@ -2,7 +2,7 @@
 apk add make gcc g++ libx11-dev libxft-dev libxinerama-dev
 
 # INSTALL
-apk add ttf-inconsolata ncurses
+apk add ttf-inconsolata
 make clean install
 
 apk del libx11-dev libxft-dev libxinerama-dev
